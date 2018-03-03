@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">  
+  
+          <form class="form-horizontal" (ngSubmit)="onFormSubmit(signupForm)" #signupForm = "ngForm">
+              <div class="tab-content">
+                <div ngModelGroup="basicgrp" #basicgrp="ngModelGroup">
+                        <h3>Basic</h3>
+                       
+                            <table class="table table-stripped">
+                                <tr>
+                                    <th><label for="inputFname">First Name</label></th>
+                                    <td>
+                                        <input type="text" ngModel name="fname" #fname="ngModel" placeholder="First Name" minlength="4" maxlength="20" required>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="warnmsg">
+                                            <div *ngIf="fname.errors.required">
+                                                    FirstName is required.
+                                            </div>
+                                            <div *ngIf="fname.errors.minlength">
+                                                    FirstName must be at least 4 characters long.
+                                            </div>                                      
+                                            <div *ngIf="fname.errors.forbiddenName">
+                                                    FirstName cannot be Bob.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label for="inputLname">Last Name</label></th>
+                                    <td>
+                                        <input type="text" ngModel name="lname" #lname="ngModel" placeholder="Last Name" minlength="2" maxlength="20" required>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="lname.invalid && (lname.dirty || lname.touched)" class="warnmsg">
+                                            <div *ngIf="lname.errors.required">
+                                                    LastName is required.
+                                            </div>
+                                            <div *ngIf="lname.errors.minlength">
+                                                    LastName must be at least 4 characters long.
+                                            </div>                                      
+                                            <div *ngIf="lname.errors.forbiddenName">
+                                                    LastName cannot be Bob.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label for="inputEmail">Email</label></th>
+                                    <td>
+                                        <input type="text" ngModel name="email" #email = "ngModel" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="warnmsg">
+                                            <div *ngIf = "email.errors?.required">
+                                                Email field can't be blank
+                                            </div>
+                                            <div *ngIf = "email.errors?.pattern && email.touched">
+                                                The email id doesn't seem right
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label for="inputYearOfPass">Year Of Passout</label></th>
+                                    <td>
+                                        <input type="text" ngModel name="yopout" #yopout="ngModel" placeholder="Year Of Passout" minlength="4" maxlength="8" required>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="yopout.invalid && (yopout.dirty || yopout.touched)" class="warnmsg">
+                                            <div *ngIf="yopout.errors.required">
+                                                Passout is required.
+                                            </div>
+                                            <div *ngIf="yopout.errors.minlength">
+                                                    Passout should be min 4 characters long.
+                                            </div>                                      
+                                            <div *ngIf="yopout.errors.forbiddenName">
+                                                    Passout cannot be Bob.
+                                            </div>
+                                        </div>
+                                     </td>
+                                </tr>
+                                <tr>                                    
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid"> Submit </button>
+                                        <button type="reset" class="btn btn-default">Cancel</button></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <!-- <th>{{signupForm.value | json }}</th> -->
+                                    <th *ngIf="signupForm.valid">  
+                                        You Have Successfully Registered....<br>
+                                        FirstName: {{signupForm.value.basicgrp.fname}}<br>
+                                        LastName: {{signupForm.value.basicgrp.lname}}<br>
+                                        Email: {{signupForm.value.basicgrp.email}}<br>
+                                        Year Of passout: {{signupForm.value.basicgrp.yopout}}<br>
+                                    </th>
+                                </tr>
+                        </table>
+                 </div>
+              </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>

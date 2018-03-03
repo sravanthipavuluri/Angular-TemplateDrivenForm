@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h1>Registration Form</h1>
+        <form #validateForm="ngForm"  (ngSubmit)="validate(validateForm)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                      <div ngModelGroup="general">
+                          <h3>General Info</h3>
+                          <label for="FirstName">First Name</label>
+                          <input type="text" class="form-control" (ngModelChange)="chklength('Fname')" name="Fname" [ngModel]="Fname" required>
+                          <p *ngIf="frmisvalid" class="warning">Please Enter FirstName</p>
+                          <label for="LastName">Last Name</label>
+                          <input type="text" class="form-control" name="Lname" #Lname="ngModel" ngModel required>
+                          <label for="PetName">Pet Name</label>
+                          <input type="text" class="form-control" name="Pname" #Pname="ngModel" ngModel required>
+                      </div>
+                      <div ngModelGroup="Academics">
+                          <h3>Academics Info</h3>
+                          <label for="degree">Latest Degree</label>                         
+                          <select class="form-control" name="Degree" #Degree="ngModel" ngModel required>
+                              <option>MCA</option>
+                              <option>MSC</option>
+                              <option>BTech</option>
+                              <option>BSC</option>
+                          </select>
+                          <label for="year">Passout Year</label>
+                          <input type="number" class="form-control" name="Passout" #Passout="ngModel" ngModel pattern="\d{4}" required>
+                      </div>
+                    </div>
+                   
+                    <div class="col-md-3">
+                        <div ngModelGroup="Courses">
+                            <h3>Courses Info</h3>
+                            <label for="course">Course</label>                         
+                            <select class="form-control" name="Course" #Course="ngModel" ngModel required>
+                                <option>FullStack</option>
+                                <option>DataSciences</option>
+                                <option>DataAnalysis</option>
+                                <option>Python</option>
+                            </select>
+                            <label for="duration">Duration</label>
+                            <input type="text" class="form-control" name="Duration" #Duration="ngModel" ngModel required>
+                            <h3>Mail Info</h3>
+                            <label for="email">Email</label>                         
+                            <input type="email" class="form-control" [(ngModel)]="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                            <!-- This is the error section -->
+                                
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                    <div *ngIf = "email.errors?.required">
+                                        Email field can't be blank
+                                    </div>
+                                    <div *ngIf = "email.errors?.pattern && email.touched">
+                                        The email id doesn't seem right
+                                    </div>
+                                </div>
+                            <h3>Contact Info</h3>
+                            <label for="phone">Phone</label>                         
+                            <input type="number" class="form-control" name="Phone" #Phone="ngModel" ngModel minlength="9" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div ngModelGroup="Address">
+                            <h3>Address Info</h3>
+                            <label for="Address1">Current Address</label>
+                            <input type="text" class="form-control" name="CAddress" #CAddress="ngModel" ngModel required>
+                            <label for="Address2">Perminant Address</label>
+                            <input type="text" class="form-control" name="PAddress" #PAddress="ngModel" ngModel required>
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="City" #City="ngModel" ngModel required>
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" name="State" #State="ngModel" ngModel required>
+                            <label for="zipcode">Zip</label>
+                            <input type="text" class="form-control" name="Zip" #Zip="ngModel" ngModel required>
+                        </div>
+                      </div>
+                    <div class="col-md-3" *ngIf="frmisvalid">
+
+                        <h3>Form Props</h3>
+                        <!-- <p>Is "Valid :" {{validateForm.valid}}</p>
+                        <p>Is "disabled :" {{validateForm.disabled}}</p>
+                        <p>Is "enabled :" {{validateForm.enabled}}</p>
+                        <p>Is "status :" {{validateForm.status}}</p>
+                        <p>Is "touched :" {{validateForm.touched}}</p>
+                        <p>Is "Untouched :" {{validateForm.untouched}}</p> -->
+                        <!-- {{reg | json}} -->
+
+
+                        <!-- <h3>Form Inputs</h3>
+                         <p>{{Fname}}</p>
+                         <p>{{lname}}</p>
+                         <p>{{pname}}</p>
+                         <p>{{degree}}</p>
+                         <p>{{passout}}</p>
+                         <p>{{course}}</p>
+                         <p>{{duration}}</p>
+                         <p>{{email}}</p>
+                         <p>{{phone}}</p>
+                         <p>{{caddr}}</p>
+                         <p>{{paddr}}</p>
+                         <p>{{city}}</p>
+                         <p>{{state}}</p>
+                         <p>{{zip}}</p> -->
+                    </div>
+                </div>
+            </div>
+            <button type="submit" [disabled]="!validateForm.valid">Submit</button>
+        </form>
+  </div>
+  
+ </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">  
+  
+          <form class="form-horizontal" (ngSubmit)="onFormSubmit(signupForm)" #signupForm = "ngForm">
+              <div class="tab-content">
+                <div ngModelGroup="basicgrp" #basicgrp="ngModelGroup">
+                        <h3>Contact Info</h3>
+                       
+                            <table class="table table-stripped">
+                                <tr>
+                                    <th><label for="inputPhone">Phone</label></th>
+                                    <td>
+                                        <input type="text" [ngModel]="conts.phoneno" name="phone" #phone="ngModel" placeholder="Phone" minlength="9" required>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="warnmsg">
+                                            <div *ngIf="phone.errors.required">
+                                                    Phone is required.
+                                            </div>
+                                            <div *ngIf="phone.errors.minlength">
+                                                    Phone must be at least 9 characters long.
+                                            </div>                                      
+                                            <div *ngIf="phone.errors.forbiddenName">
+                                                   Phone cannot be Bob.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label for="inputAddress">Address</label></th>
+                                    <td>
+                                        <input type="text" [ngModel]="conts.addr" name="address" #address="ngModel" placeholder="Address" minlength="10" required>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="address.invalid && (address.dirty || address.touched)" class="warnmsg">
+                                            <div *ngIf="address.errors.required">
+                                                Address is required.
+                                            </div>
+                                            <div *ngIf="address.errors.minlength">
+                                                Address address be at least 10 characters long.
+                                            </div>                                      
+                                            <div *ngIf="address.errors.forbiddenName">
+                                                address cannot be Bob.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <th><label for="inputLname">Last Name</label></th>
+                                    <td>
+                                        <input type="text" ngModel name="lname" #lname="ngModel" placeholder="Last Name" minlength="2" maxlength="20" required>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="lname.invalid && (lname.dirty || lname.touched)" class="warnmsg">
+                                            <div *ngIf="lname.errors.required">
+                                                    LastName is required.
+                                            </div>
+                                            <div *ngIf="lname.errors.minlength">
+                                                    LastName must be at least 4 characters long.
+                                            </div>                                      
+                                            <div *ngIf="lname.errors.forbiddenName">
+                                                    LastName cannot be Bob.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                               -->
+                                <tr>                                    
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid"> Submit </button>
+                                        <button type="reset" class="btn btn-default">Cancel</button></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>{{signupForm.value | json }}</th>
+                                    <th *ngIf="signupForm.valid">  
+                                        You Have Successfully Registered....<br>
+                                        Phone: {{signupForm.value.basicgrp.phone}}<br>
+                                    </th>
+                                </tr>
+                        </table>
+                 </div>
+              </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>

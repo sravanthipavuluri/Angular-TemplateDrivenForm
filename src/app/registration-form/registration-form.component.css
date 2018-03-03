@@ -1,0 +1,32 @@
+input,select{
+    width:50%;
+    padding:10px;
+    margin-left:5%;
+}
+label{
+    color:white;
+}
+p{
+    color:white;
+}
+form{
+    background-color: black;
+    padding:30px;
+    border-radius: 5px;
+    margin-bottom: 10%;
+}
+h3{
+    color:blue;
+}
+button{
+    background-color: blue;
+    border-radius: 5px;
+    color:white;
+    width:10%;
+    padding:2px;
+    margin-left: 1%;
+    margin-top:10%;
+}
+legend{
+    color:white;
+}

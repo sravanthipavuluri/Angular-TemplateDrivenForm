@@ -1,0 +1,48 @@
+input,select{
+    width:80%;
+    padding:10px;
+    margin:2px;
+}
+label{
+    color:white;
+}
+p{
+    color:white;
+}
+form{
+    background-color: black;
+    padding:30px;
+    border-radius: 5px;
+    margin-bottom: 10%;
+}
+h3{
+    color:blue;
+}
+button{
+    background-color: blue;
+    border-radius: 5px;
+    color:white;
+    width:8%;
+    padding:2px;
+    margin-left: 1%;
+    margin-top:10%;
+}
+
+
+input.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  select.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+
+  input.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  select.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+.warning{
+    border:red;
+    color:red;
+}

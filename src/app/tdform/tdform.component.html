@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+                <h3>Template Driven Example</h3>
+                <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" routerLink="home" routerLinkActive="active">Basic</a></li>
+                  <li><a data-toggle="tab" routerLink="contact" routerLinkActive="active">Contact</a></li>
+                  <li><a data-toggle="tab" routerLink="password" routerLinkActive="active">Change Password</a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
